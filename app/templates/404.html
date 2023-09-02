@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+    404
+{% endblock %}
+{% block body %}
+    {{ super() }}
+<div class="text-center m-4">
+    <h1>Lo sentimos no encontramos lo que buscabas</h1>
+    <p>{{ error }}</p>
+</div>
+{% endblock %}
