@@ -4,3 +4,6 @@ flask-wtf
 flask-testing
 blinker
 python-dotenv
+psycopg2
+flask_sqlalchemy
+flask_migrate
