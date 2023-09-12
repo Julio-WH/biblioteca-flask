@@ -5,4 +5,4 @@ load_dotenv()
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = f'postgres://{os.getenv("DB_URI")}'
+    SQLALCHEMY_DATABASE_URI = f'postgresql://{os.getenv("DB_URI")}'

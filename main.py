@@ -4,8 +4,8 @@ from app import create_app, db
 
 app = create_app()
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 todos = ['Comprar cafe', 'Enviar solicitud de compra', 'Entregar video a productor ']
 
