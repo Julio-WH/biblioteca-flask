@@ -5,5 +5,5 @@ flask-testing
 blinker
 python-dotenv
 psycopg2
-flask_sqlalchemy
-flask_migrate
+flask-sqlalchemy
+flask-migrate
