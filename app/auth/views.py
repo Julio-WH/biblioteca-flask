@@ -9,9 +9,7 @@ def login():
     context = {
         'login_form': login_form
     }
-    print('dasdsdsd')
     if login_form.validate_on_submit():
-        print(login_form.validate_on_submit())
         username = login_form.username.data
         session['username'] = username
         flash('Nombre de usario registrado con éxito!', 'success')

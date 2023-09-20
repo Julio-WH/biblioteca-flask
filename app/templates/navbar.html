@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ url_for('index') }}">
         <img src="{{ url_for('static',filename='images/logo.png') }}" alt="biblioteca logo" width="30" height="30 ">
         Biblioteca</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,8 +8,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Libros</a>
-        <a class="nav-link" href="#">Autores</a>
+        <a class="nav-link nav-book" href="{{ url_for('book.list_books') }}">Libros</a>
+        <a class="nav-link nav-author" href="{{ url_for('author.list_authors') }}">Autores</a>
       </div>
     </div>
   </div>

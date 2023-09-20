@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+    Autores
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-3">Lista de Autores</h1>
+        <a class="btn bg-info" href="{{ url_for('author.add_author') }}">Agregar</a>
+        <table class="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for author in authors %}
+              <tr>
+                  <th scope="row">{{ author.id }}</th>
+                  <td>{{ author.name }}</td>
+                  <td>{{ author.lastname }}</td>
+                  <td>{{ author.email }}</td>
+                  <td>
+                      <a href="{{url_for('author.edit_author', author_id=author.id) }}" class="btn btn-info">Editar</a>
+                      <a href="{{url_for('author.delete_author', author_id=author.id) }}" class="btn btn-danger">Eliminar</a>
+                  </td>
+            </tr>
+            <tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$( ".nav-author" ).addClass( "active");
+</script>
+{% endblock %}

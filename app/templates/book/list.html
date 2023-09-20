@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+    Libros
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-3">Lista de Libros</h1>
+        <button class="btn bg-info">Agregar</button>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$( ".nav-book" ).addClass( "active");
+</script>
+{% endblock %}

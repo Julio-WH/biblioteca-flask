@@ -1,4 +1,7 @@
-from . import db
+from flask_sqlalchemy import SQLAlchemy
+from datetime import date
+db = SQLAlchemy()
+
 
 class Authors(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -6,7 +9,7 @@ class Authors(db.Model):
     lastname = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(60), nullable=False)
     createdat = db.Column(db.Date, nullable=False, default=date.today)
-    book = db.relationship('Books', backref='Authors', lazy=True)
+    book = db.relationship('Books', backref='authors', lazy=True)
 
     def __repr__(self):
         return f'{self.name} {self.lastname}'
@@ -17,7 +20,7 @@ class Books(db.Model):
     title = db.Column(db.String(100), nullable=False)
     pub_date = db.Column(db.Date)
     createdat = db.Column(db.Date, nullable=False, default=date.today)
-    autor_id = db.Column(db.Integer, db.ForeignKey('Authors.id'), nullable=False)
+    autor_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
 
     def __repr__(self):
         return f'{self.title}'
