@@ -44,12 +44,9 @@ def edit_author(author_id):
         'author': author
     }
     if form.validate_on_submit():
-        author = Authors(
-            name=form.name.data,
-            lastname=form.lastname.data,
-            email=form.email.data
-        )
-        db.session.add(author)
+        author.name=form.name.data,
+        author.lastname=form.lastname.data,
+        author.email=form.email.data
         db.session.commit()
         flash('Author editado con éxito!', 'success')
         return redirect(url_for('author.list_authors'))
@@ -70,4 +67,4 @@ def delete_author(author_id):
         db.session.commit()
         flash('Author Eliminado con éxito!', 'success')
         return redirect(url_for('author.list_authors'))
-    return render_template('author/delete.html', **context)
+    return render_template('author/form.html', **context)

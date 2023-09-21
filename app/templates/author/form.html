@@ -7,19 +7,44 @@
 {% block body %}
     <div class="container">
         <h1 class="text-center mt-3">{{ title }} Autor</h1>
-        <form action="{{ url_for('author.add_author') }}" method="POST">
+        {% if title == 'Eliminar'%}
+            <div class="alert alert-danger" role="alert">
+              Seguro que quieres eliminar al siguiente autor ?
+            </div>
+        {% endif %}
+        <form action="
+            {% if title == 'Agregar'%}
+                {{ url_for('author.add_author') }}
+            {% elif  title == 'Editar' %}
+                {{ url_for('author.edit_author', author_id=author.id) }}
+            {% else %}
+                {{ url_for('author.delete_author', author_id=author.id) }}
+            {% endif %}
+            " method="POST">
             {{ form.csrf_token }}
             <div class="mb-3">
                 {{ form.name.label(class="form-label") }}
-                {{ form.name(class="form-control") }}
+                {% if title == 'Eliminar'%}
+                    {{ form.name(class="form-control", readonly=True) }}
+                {% else %}
+                    {{ form.name(class="form-control") }}
+                {% endif %}
             </div>
             <div class="mb-3">
                 {{ form.lastname.label(class="form-label") }}
-                {{ form.lastname(class="form-control") }}
+                {% if title == 'Eliminar'%}
+                    {{ form.lastname(class="form-control", readonly=True) }}
+                {% else %}
+                    {{ form.lastname(class="form-control") }}
+                {% endif %}
             </div>
             <div class="mb-3">
                 {{ form.email.label(class="form-label") }}
-                {{ form.email(class="form-control") }}
+                {% if title == 'Eliminar'%}
+                    {{ form.email(class="form-control", readonly=True) }}
+                {% else %}
+                    {{ form.email(class="form-control") }}
+                {% endif %}
             </div>
             <div class="text-center">
                 {{ form.submit(class="btn btn-info mx-3") }}

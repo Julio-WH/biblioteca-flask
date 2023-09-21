@@ -24,4 +24,4 @@ services:
       - .env
     depends_on:
       - postgres
-    command: ["flask", "run", "-h", "0.0.0.0"]
+    command: ["flask", "run", "-h", "0.0.0.0", "--debug"]

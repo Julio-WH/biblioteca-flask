@@ -8,6 +8,7 @@
     <div class="container">
         <h1 class="text-center mt-3">Lista de Autores</h1>
         <a class="btn bg-info" href="{{ url_for('author.add_author') }}">Agregar</a>
+        {% if authors %}
         <table class="table table-striped mt-3">
           <thead>
             <tr>
@@ -34,6 +35,11 @@
           {% endfor %}
           </tbody>
         </table>
+        {% else %}
+            <div class="alert alert-warning mt-3" role="alert">
+              No tienes a ningun autor registrado aun...
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 {% block javascript %}
