@@ -9,7 +9,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     env_file:
       - .env
   flask:
@@ -27,3 +27,6 @@ services:
     depends_on:
       - postgres
     command: ["flask", "run", "-h", "0.0.0.0", "--debug"]
+volumes:
+  .:
+  postgres_data:
