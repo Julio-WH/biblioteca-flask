@@ -16,6 +16,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Correo</th>
+              <th scope="col">Libros Relacionados</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -26,6 +27,12 @@
                   <td>{{ author.name }}</td>
                   <td>{{ author.lastname }}</td>
                   <td>{{ author.email }}</td>
+                  <td>{% if author.book %}
+                        {{ author.book | join(', ')}}
+                        {% else %}
+                          Ningun Libro
+                    {% endif %}
+                  </td>
                   <td>
                       <a href="{{url_for('author.edit_author', author_id=author.id) }}" class="btn btn-info">Editar</a>
                       <a href="{{url_for('author.delete_author', author_id=author.id) }}" class="btn btn-danger">Eliminar</a>

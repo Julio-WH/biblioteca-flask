@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectMultipleField, DateField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, DateField
 from wtforms.widgets import CheckboxInput
 from wtforms.validators import DataRequired
 
@@ -19,6 +19,7 @@ class AuthorForm(FlaskForm):
 
 class BookForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    authors = SelectMultipleField('Authors', coerce=int, option_widget=CheckboxInput())
+    authors = SelectField('Autor', coerce=int, validators=[DataRequired()])
     pub_date = DateField('Publication Date', format='%Y-%m-%d', validators=[DataRequired()])
+    submit = SubmitField('Aceptar')
 

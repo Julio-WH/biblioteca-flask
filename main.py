@@ -24,9 +24,15 @@ def not_found(error):
 @app.route('/')
 def index():
     user_ip = request.remote_addr
-    response = make_response(redirect('/hello'))
+    response = make_response(redirect('/biblioteca'))
     session['user_ip'] = user_ip
     return response
+
+
+@app.route('/biblioteca')
+def library():
+    contex = {}
+    return render_template('library.html', **contex)
 
 
 @app.route('/hello')

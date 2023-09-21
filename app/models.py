@@ -21,6 +21,7 @@ class Books(db.Model):
     pub_date = db.Column(db.Date)
     createdat = db.Column(db.Date, nullable=False, default=date.today)
     autor_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
+    author = db.relationship('Authors', backref=db.backref('books', lazy=True))
 
     def __repr__(self):
         return f'{self.title}'
